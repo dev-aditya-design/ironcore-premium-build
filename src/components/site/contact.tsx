@@ -26,7 +26,12 @@ type Errors = Partial<Record<"name" | "email" | "phone" | "message", string>>;
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-function validate(values: Record<string, string>): Errors {
+function validate(values: {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}): Errors {
   const errors: Errors = {};
   const name = values.name.trim();
   const email = values.email.trim();
